@@ -32,18 +32,18 @@
 ### __Description__
 Application to record the time spent on different personal tasks, work tasks, etc.
 
-### __Motivation_
+### __Motivation__
 In my daily work life I have to record the hours I dedicate to different tasks, then at the end of the week I must upload these hours into two different systems, NetSuite and a collaborative Excel on which we rely to keep track and see that each project goes well.
 
 To keep track of my hours, for some time I have been loading everything into a simple Excel with just a couple of columns, enough to know how much time is spent on each task.
 
-### __Problem_
+### __Problem__
 The problem here is that at the end of the week I invest approximately one hour, in some cases even more, since in the two places that I must record my time they are loaded in different ways, NetSuite based on tasks per day, and collaborative Excel based in tasks per week.
 
-### __Solution_
+### __Solution__
 This project starts as a simple script written in TypeScript, which will take care of given a range of dates, read my Excel that it will load daily, process that information and then return two results, both ready to be easily and quickly copied and pasted into NetSuite and collaborative Excel.
 
-### __Future_
+### __Future__
 I would like to grow this script into an application with a frontend and a backend, in which I record my time daily instead of uploading it to my Excel and finally extract different reports and metrics.
 
 <p align="right">(<a href="#top">Back to top</a>)</p>
