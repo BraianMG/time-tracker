@@ -1,0 +1,12 @@
+## Pending tasks:
+- [ ] Configure Jest
+- [ ] Read .xlsx file
+- [ ] Process information from the .xlsx file according to date range and indicated output type
+  - INPUT:
+    - startDate = `2024-02-12`
+    - endDate = `2024-02-16`
+    - type = `netsuite` or `excel`
+- [ ] Format output
+  - OUTPUT:
+    - For `netsuite` type = Total hours and days (tasks per day)
+    - For `excel` type = Total hours and days (tasks per week)
