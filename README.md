@@ -62,7 +62,13 @@ I would like to grow this script into an application with a frontend and a backe
 - TBD
 
 ## Commands
-- TBD
+- Install dependencies: `yarn install`
+- Build app: `yarn run build`
+- Run the app: 
+  - Development: `yarn run start:dev`
+  - Production: `yarn run start:prod`
+- Run tests: 
+  - TBD
 
 <p align="right">(<a href="#top">Back to top</a>)</p>
 
