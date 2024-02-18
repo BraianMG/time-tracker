@@ -1,6 +1,6 @@
 ## Pending tasks:
 - [X] Configure Jest
-- [ ] Configure Eslint and Prettier
+- [X] Configure Eslint and Prettier
 - [ ] Read .xlsx file
 - [ ] Process information from the .xlsx file according to date range and indicated output type
   - INPUT:
