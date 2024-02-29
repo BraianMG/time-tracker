@@ -65,8 +65,13 @@ I would like to grow this script into an application with a frontend and a backe
 - Install dependencies: `yarn install`
 - Build app: `yarn run build`
 - Run the app: 
-  - Development: `yarn run start:dev`
-  - Production: `yarn run start:prod`
+  - Development: `yarn run start:dev  --file-path path/to/your/file.csv --start-date YYYY-MM-DD --end-date YYYY-MM-DD`
+  - Production: `yarn run start:prod  --file-path path/to/your/file.csv --start-date YYYY-MM-DD --end-date YYYY-MM-DD`
+  - Params:
+    - `--file-path`: Indicates the path to the .csv file to read (__mandatory__)
+    - `--start-date`: Date from which to process data (__mandatory__)
+    - `--end-date`: Date until which to process data (__mandatory__)
+  - Example: `yarn start:dev --file-path C:/Users/Braian/Desktop/sample.csv --start-date 2024-01-01 --end-date 2024-01-31`
 - Run tests: 
   - TBD
 

@@ -1,13 +1,17 @@
 ## Pending tasks:
 - [X] Configure Jest
 - [X] Configure Eslint and Prettier
-- [ ] Read .xlsx file
-- [ ] Process information from the .xlsx file according to date range and indicated output type
+- [ ] ~~Read .xlsx file~~
+- [ ] ~~Process information from the .xlsx file according to date range and indicated output type~~
+- [X] Read .csv file
+- [ ] Process information from the .csv file according to date range ~~and indicated output type~~
   - INPUT:
+    - filePath = `C:\Users\Braian\Desktop\sample.csv`
     - startDate = `2024-02-12`
     - endDate = `2024-02-16`
-    - type = `netsuite` or `excel`
+    - ~~type = `netsuite` or `excel`~~
 - [ ] Format output
   - OUTPUT:
-    - For `netsuite` type = Total hours and days (tasks per day)
-    - For `excel` type = Total hours and days (tasks per week)
+    - ~~For `netsuite` type = Total hours and days (tasks per day)~~
+    - ~~For `excel` type = Total hours and days (tasks per week)~~
+    - Total days and hours per tasks.
