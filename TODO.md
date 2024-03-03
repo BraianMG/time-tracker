@@ -4,7 +4,7 @@
 - [ ] ~~Read .xlsx file~~
 - [ ] ~~Process information from the .xlsx file according to date range and indicated output type~~
 - [X] Read .csv file
-- [ ] Process information from the .csv file according to date range ~~and indicated output type~~
+- [X] Process information from the .csv file according to date range ~~and indicated output type~~
   - INPUT:
     - filePath = `C:\Users\Braian\Desktop\sample.csv`
     - startDate = `2024-02-12`

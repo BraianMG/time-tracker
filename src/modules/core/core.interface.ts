@@ -13,3 +13,8 @@ export interface Data {
   startDate: Date;
   endDate: Date;
 }
+
+export interface DateRange {
+  startDate: string;
+  endDate: string;
+}
