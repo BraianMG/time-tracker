@@ -7,6 +7,7 @@ class CommandService {
   private filePathOptions = COMMANDS.OPTIONS.FILE_PATH;
   private startDateOptions = COMMANDS.OPTIONS.START_DATE;
   private endDateOptions = COMMANDS.OPTIONS.END_DATE;
+  private ignoreTicketsOptions = COMMANDS.OPTIONS.IGNORE_TICKETS;
 
   constructor() {
     this.program = new Commander();
@@ -25,6 +26,10 @@ class CommandService {
       .option(
         `${this.endDateOptions.optionName} ${this.endDateOptions.paramName}`,
         this.endDateOptions.description,
+      )
+      .option(
+        `${this.ignoreTicketsOptions.optionName} ${this.ignoreTicketsOptions.paramName}`,
+        this.ignoreTicketsOptions.description,
       );
 
     this.program.parse(process.argv);

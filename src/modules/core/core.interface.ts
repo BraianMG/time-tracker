@@ -14,9 +14,10 @@ export interface Data {
   endDate: Date;
 }
 
-export interface DateRange {
+export interface FilterDataOptions {
   startDate: string;
   endDate: string;
+  ignoreTickets?: string
 }
 
 export interface TicketInfo {

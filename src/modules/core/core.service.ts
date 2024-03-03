@@ -4,7 +4,7 @@ import { CSV_DELIMITER, HEADERS } from '@utils/constants';
 import { CsvData } from '@modules/core';
 import {
   Data,
-  DateRange,
+  FilterDataOptions,
   InfoPerTicket,
   Summary,
   TicketInfo,
@@ -14,6 +14,7 @@ import utc from 'dayjs/plugin/utc';
 import timezone from 'dayjs/plugin/timezone';
 import isSameOrAfter from 'dayjs/plugin/isSameOrAfter';
 import isSameOrBefore from 'dayjs/plugin/isSameOrBefore';
+import { removeAccentMarks } from '@utils/functions';
 
 dayjs.extend(utc);
 dayjs.extend(timezone);
@@ -38,6 +39,7 @@ class CoreService {
       const filteredData = this.mapAndFilterData(csvData, {
         startDate: options.startDate,
         endDate: options.endDate,
+        ignoreTickets: options.ignoreTickets,
       });
       const result = this.formatResult(filteredData);
       console.log(result);
@@ -46,14 +48,23 @@ class CoreService {
     }
   }
 
-  private mapAndFilterData(csvData: CsvData[], dateRange: DateRange): Data[] {
+  private mapAndFilterData(
+    csvData: CsvData[],
+    filterOptions: FilterDataOptions,
+  ): Data[] {
     const dateRangeUtc = {
-      startDate: dayjs(dateRange.startDate).startOf('day'),
-      endDate: dayjs(dateRange.endDate).endOf('day'),
+      startDate: dayjs(filterOptions.startDate).startOf('day'),
+      endDate: dayjs(filterOptions.endDate).endOf('day'),
     };
+    const ignoreTickets = filterOptions.ignoreTickets
+      ?.split(',')
+      .map(e => removeAccentMarks(e).toUpperCase());
 
     return csvData
       .filter(data => {
+        const ticket = removeAccentMarks(data.ticket).toUpperCase()
+        if (ignoreTickets?.includes(ticket)) return false;
+
         const startDateUtc = dayjs(
           this.formatDateAndTime(data.date, data.startTime),
         );
