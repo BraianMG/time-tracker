@@ -18,3 +18,18 @@ export interface DateRange {
   startDate: string;
   endDate: string;
 }
+
+export interface TicketInfo {
+  hoursConsumed: number;
+  daysConsumed: number;
+  comments?: string;
+}
+
+export interface InfoPerTicket {
+  [key: string]: TicketInfo;
+}
+
+export interface Summary {
+  totalHoursConsumed: number;
+  totalDaysConsumed: number;
+}

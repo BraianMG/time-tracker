@@ -10,7 +10,7 @@
     - startDate = `2024-02-12`
     - endDate = `2024-02-16`
     - ~~type = `netsuite` or `excel`~~
-- [ ] Format output
+- [X] Format output
   - OUTPUT:
     - ~~For `netsuite` type = Total hours and days (tasks per day)~~
     - ~~For `excel` type = Total hours and days (tasks per week)~~

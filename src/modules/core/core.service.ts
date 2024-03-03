@@ -2,7 +2,13 @@ import { Csv, Params } from '@modules/csv';
 import { Command } from '@modules/command';
 import { CSV_DELIMITER, HEADERS } from '@utils/constants';
 import { CsvData } from '@modules/core';
-import { Data, DateRange } from './core.interface';
+import {
+  Data,
+  DateRange,
+  InfoPerTicket,
+  Summary,
+  TicketInfo,
+} from './core.interface';
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
 import timezone from 'dayjs/plugin/timezone';
@@ -33,8 +39,8 @@ class CoreService {
         startDate: options.startDate,
         endDate: options.endDate,
       });
-      console.log({ filteredData, countReg: filteredData.length });
-      // TODO: Format response
+      const result = this.formatResult(filteredData);
+      console.log(result);
     } catch (error) {
       console.error('Error al leer el archivo CSV:', error);
     }
@@ -84,6 +90,43 @@ class CoreService {
     const day = _date[0].padStart(2, '0');
 
     return `${year}-${month}-${day} ${time}`;
+  }
+
+  private formatResult(data: Data[]): {
+    infoPerTicket: InfoPerTicket;
+    summary: Summary;
+  } {
+    const infoPerTicket: InfoPerTicket = {};
+    const summary: Summary = {
+      totalHoursConsumed: 0,
+      totalDaysConsumed: 0,
+    };
+    const ticketInfo: TicketInfo = {
+      hoursConsumed: 0,
+      daysConsumed: 0,
+      comments: '',
+    };
+
+    data.forEach(d => {
+      if (!infoPerTicket[d.ticket]) {
+        infoPerTicket[d.ticket] = { ...ticketInfo };
+      }
+
+      const startDate = dayjs(d.startDate);
+      const endDate = dayjs(d.endDate);
+      const dif = endDate.diff(startDate, 'm');
+      const hoursConsumed = dif / 60;
+      const daysConsumed = dif / (60 * 8);
+
+      infoPerTicket[d.ticket].hoursConsumed += hoursConsumed;
+      infoPerTicket[d.ticket].daysConsumed += daysConsumed;
+      infoPerTicket[d.ticket].comments += `${d.task}\n`;
+
+      summary.totalHoursConsumed += hoursConsumed;
+      summary.totalDaysConsumed += daysConsumed;
+    });
+
+    return { infoPerTicket, summary };
   }
 }
 
