@@ -1,6 +1,6 @@
 import { Csv, Params } from '@modules/csv';
 import { Command } from '@modules/command';
-import { CSV_DELIMITER, HEADERS } from '@utils/constants';
+import { CSV_DELIMITER, HEADERS, WORKING_DAY_HOURS } from '@utils/constants';
 import { CsvData } from '@modules/core';
 import {
   Data,
@@ -127,7 +127,7 @@ class CoreService {
       const endDate = dayjs(d.endDate);
       const dif = endDate.diff(startDate, 'm');
       const hoursConsumed = dif / 60;
-      const daysConsumed = dif / (60 * 8);
+      const daysConsumed = dif / (60 * WORKING_DAY_HOURS);
 
       infoPerTicket[d.ticket].hoursConsumed += hoursConsumed;
       infoPerTicket[d.ticket].daysConsumed += daysConsumed;

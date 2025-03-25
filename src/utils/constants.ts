@@ -33,3 +33,5 @@ export const HEADERS = [
 ];
 
 export const CSV_DELIMITER = ';';
+
+export const WORKING_DAY_HOURS = 8;
