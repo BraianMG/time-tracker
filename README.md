@@ -33,15 +33,15 @@
 Application to record the time spent on different personal tasks, work tasks, etc.
 
 ### __Motivation__
-In my daily work life I have to record the hours I dedicate to different tasks, then at the end of the week I must upload these hours into two different systems, NetSuite and a collaborative Excel on which we rely to keep track and see that each project goes well.
+In my daily work, I have to record the hours I spend on different tasks for different projects. At the end of the week, I have to upload them to two different systems we use to keep track and make sure each project is running smoothly.
 
-To keep track of my hours, for some time I have been loading everything into a simple Excel with just a couple of columns, enough to know how much time is spent on each task.
+To keep track of my hours, for some time now I've been uploading everything to a simple Excel spreadsheet with just a couple of columns, enough to know how much time I spend on each task.
 
 ### __Problem__
-The problem here is that at the end of the week I invest approximately one hour, in some cases even more, since in the two places that I must record my time they are loaded in different ways, NetSuite based on tasks per day, and collaborative Excel based in tasks per week.
+The problem is that at the end of the week I spend approximately an hour, and in some cases more, since I have to record my time differently in the two tracking systems. It could be summarized in a weekly and a daily breakdown of hours.
 
 ### __Solution__
-This project starts as a simple script written in TypeScript, which will take care of given a range of dates, read my Excel that it will load daily, process that information and then return two results, both ready to be easily and quickly copied and pasted into NetSuite and collaborative Excel.
+This project starts as a simple script written in TypeScript, which will take care of, given a date range, reading my Excel that will load daily, processing that information and then returning two results, both ready to be easily and quickly copied and pasted into both tracking systems.
 
 ### __Future__
 I would like to grow this script into an application with a frontend and a backend, in which I record my time daily instead of uploading it to my Excel and finally extract different reports and metrics.
@@ -71,7 +71,8 @@ I would like to grow this script into an application with a frontend and a backe
     - `--file-path`: Indicates the path to the .csv file to read (__mandatory__)
     - `--start-date`: Date from which to process data (__mandatory__)
     - `--end-date`: Date until which to process data (__mandatory__)
-  - Example: `yarn start:dev --file-path C:/Users/Braian/Desktop/sample.csv --start-date "2024-01-01" --end-date "2024-01-31" --ignore "almuerzo,carga de horas"`
+    - `--ignore-tickets`: Tickets to ignore separated by comma (__optional__)
+  - Example: `yarn start:dev --file-path C:/Users/Braian/Desktop/sample.csv --start-date "2024-01-01" --end-date "2024-01-31" --ignore-tickets "almuerzo,pausa,carga de horas"`
 - Run tests: 
   - TBD
 

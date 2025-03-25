@@ -18,7 +18,7 @@ export const COMMANDS = {
     IGNORE_TICKETS: {
       optionName: '--ignore-tickets',
       paramName: '<ignoreTickets>',
-      description: 'Tickets to ignore',
+      description: 'Tickets to ignore separated by comma',
     },
   },
 };
